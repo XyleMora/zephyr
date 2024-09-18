@@ -459,10 +459,12 @@ void z_log_vprintk(const char *fmt, va_list ap);
 #endif
 
 /*
- * Eclipse CDT or JetBrains Clion parser is sometimes confused by logging API
- * code and freezes the whole IDE. Following lines hides LOG_x macros from them.
+ * Eclipse CDT or JetBrains Clion or VSCode Intellisense parser is sometimes
+ * confused by logging API code and freezes the whole IDE. Following lines hides
+ * LOG_x macros from them.
  */
-#if defined(__CDT_PARSER__) || defined(__JETBRAINS_IDE__)
+#if defined(__CDT_PARSER__) || defined(__JETBRAINS_IDE__) \
+	|| defined(__INTELLISENSE__)
 #undef LOG_ERR
 #undef LOG_WRN
 #undef LOG_INF
